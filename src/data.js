@@ -1,11 +1,4 @@
-const express = require("express");
-
-const app = express();
-
-const port = process.env.PORT || 8080;
-app.listen(port);
-
-const generateBallotData = () => {
+export const generateBallotData = () => {
   return {
     items: [
       {
@@ -260,12 +253,3 @@ const generateBallotData = () => {
     ],
   };
 };
-
-const ballotData = generateBallotData();
-
-app.get("/api/getBallotData", (req, res) => {
-  res.json(ballotData);
-  console.log("Sent navigation categories and list of nominees");
-});
-
-console.log("App is listening on port " + port);
